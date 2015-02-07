@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		685F0079CA340C26904FFD21 /* PXConstantExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0EF5816CB2FAB3590E15 /* PXConstantExpression.m */; };
 		685F00C82E922FD656BB7DBC /* PXAssignmentExpressionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F061F43F118A687AAD379 /* PXAssignmentExpressionView.m */; };
 		685F010A2C98B2C347CBDB0A /* PXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F07151E98409E1E835274 /* PXParser.m */; };
 		685F013BFC87A10355847631 /* PXDefaultBuiltins.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0279E5CA8800CCCC8185 /* PXDefaultBuiltins.m */; };
 		685F0157B42DE4C922DE79FF /* PXContinuation.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F09378EEF8B72750A22DD /* PXContinuation.m */; };
 		685F0167C03BD5E049BCC3B2 /* PXIdentifierExpressionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F033AEF3574D443203BF7 /* PXIdentifierExpressionView.m */; };
 		685F01AE183FB9C202858D8F /* NSArray+PXArrayExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0C5FF68F07639AE7A6B7 /* NSArray+PXArrayExtensions.m */; };
+		685F01E6CA60878AE7B2BD62 /* PXWhileExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0089F844973946296189 /* PXWhileExpression.m */; };
 		685F021C8F42642B8E1D5852 /* PXTaskProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F00EFD99037F86F1D8206 /* PXTaskProvider.m */; };
 		685F022AC6E0A7E7C9536CAC /* PXExecutionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0EB6253564D7EB63DB66 /* PXExecutionResult.m */; };
 		685F026BD8C743A999BB0607 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0D5FA5D5372E3A20B4F1 /* AppDelegate.m */; };
 		685F0287F8DA8A6B43123F78 /* PXTaskPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F004B50425F661069161D /* PXTaskPane.m */; };
 		685F0295A54062257D32E9C6 /* PXTaskGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F03EDA8DAACA1C651236F /* PXTaskGroupView.m */; };
-		685F02F33B205414DD2C07AA /* PXCompoundExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F01F3454DC9B6C3C20387 /* PXCompoundExpression.m */; };
+		685F02D669B3490C4ABBA021 /* PXConstantExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0EF5816CB2FAB3590E15 /* PXConstantExpression.m */; };
 		685F0300BFC6ADFCEAEB94F0 /* PXTaskPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F004B50425F661069161D /* PXTaskPane.m */; };
-		685F035325A14124D6EAB732 /* PXConstantExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F061FEF22FE06AA175319 /* PXConstantExpression.m */; };
-		685F035591708152B09E5BDA /* PXCallExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F014BB7CF5A74BB6BC8C9 /* PXCallExpression.m */; };
-		685F0396A8083ACE7006CC8C /* PXIdentifierExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F05A14148D9E887E105E9 /* PXIdentifierExpression.m */; };
+		685F03380A12E60B73E0EE28 /* PXIdentifierExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F09BFF12BC41F8D8ED904 /* PXIdentifierExpression.m */; };
 		685F03F1C2B8FADCA7933DD8 /* PXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F07151E98409E1E835274 /* PXParser.m */; };
 		685F03F1CCB7BA985079CD87 /* PXTaskGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F04F1104D97D32A5A6C78 /* PXTaskGroup.m */; };
 		685F0403F87A5081A5047B3D /* PXTestTaskGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0332212859137D10CD9E /* PXTestTaskGroup.m */; };
@@ -34,30 +34,32 @@
 		685F04B85E5AA1AEBC2486C1 /* PXFailureInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F061047292D6F781F69D5 /* PXFailureInfo.m */; };
 		685F04E5A4211AAB112EBF57 /* PXExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F02B1F25E6EB449F187F0 /* PXExpression.m */; };
 		685F04FE35E539DA109666CC /* PXTaskGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F03EDA8DAACA1C651236F /* PXTaskGroupView.m */; };
-		685F0508420CC2300640D398 /* PXAssignmentExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0B5800B109EE38B5F3BA /* PXAssignmentExpression.m */; };
 		685F05326C412F0BF7663A79 /* PXTaskProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F00EFD99037F86F1D8206 /* PXTaskProvider.m */; };
+		685F054D61E0F38AF4B832E5 /* PXCallExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0AD61B024516A9ADBAC4 /* PXCallExpression.m */; };
 		685F05643683AB1607208C14 /* PXAssignmentExpressionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F061F43F118A687AAD379 /* PXAssignmentExpressionView.m */; };
 		685F064EFB4E7869D9887E67 /* PXHoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F075477D0261EE6FBCC74 /* PXHoleView.m */; };
 		685F06A93D879BD1A8C1F07B /* PXWhileExpressionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F00B35AB9FFC38C27FE97 /* PXWhileExpressionView.m */; };
 		685F06AF7506C7C130DE4153 /* PXExecutionContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0ABF29CF37E04AD997A6 /* PXExecutionContext.m */; };
-		685F06EE725158C7F32525CD /* PXCompoundExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F01F3454DC9B6C3C20387 /* PXCompoundExpression.m */; };
 		685F06EF9ABDACA7D0CDA092 /* PXExpressionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F03596E6EF304C858EAD9 /* PXExpressionView.m */; };
 		685F06F1CE4909B339DB7E31 /* PXExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F02B1F25E6EB449F187F0 /* PXExpression.m */; };
 		685F07440F6393FDA6D0B729 /* PXBuiltin.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0572F0A1C56A1A09C721 /* PXBuiltin.m */; };
 		685F075FDFEF36544C3FD1CF /* PXArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F05BD437C33606F2C8E0E /* PXArgument.m */; };
 		685F0786CF3B6EE1BBF69A8B /* PXBuiltin.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0572F0A1C56A1A09C721 /* PXBuiltin.m */; };
 		685F079B3C63F445F9C11FED /* praxis.bnf in Resources */ = {isa = PBXBuildFile; fileRef = 685F0F23AF844A3AFFACE75D /* praxis.bnf */; };
+		685F07A55380988CC25784AD /* PXCallExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0AD61B024516A9ADBAC4 /* PXCallExpression.m */; };
 		685F07B19746B8B4A0741AD5 /* PXDebugContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0E12DF6F954EF78FFBD0 /* PXDebugContext.m */; };
 		685F08040F8A84EBC4FF3BE7 /* PXFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F085F06978EBA312BB30D /* PXFunction.m */; };
+		685F08143E2FA8AC62B14CEA /* PXWhileExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0089F844973946296189 /* PXWhileExpression.m */; };
 		685F085926DD2847C9387121 /* PXExpression+PXExpressionHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F09941A524F6B38FB1414 /* PXExpression+PXExpressionHelpers.m */; };
+		685F087C0402CC099F4F2365 /* PXConditionalExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F054846D7805194F396DB /* PXConditionalExpression.m */; };
 		685F088DC8DD790F6C14EFCA /* PXWhileExpressionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F00B35AB9FFC38C27FE97 /* PXWhileExpressionView.m */; };
 		685F089BDBE504655B1D0599 /* UIColor+PXColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0A8990FFF5C53B5D96B9 /* UIColor+PXColor.m */; };
 		685F08FC8595EBAF21F87257 /* PXExpression+PXExpressionHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F09941A524F6B38FB1414 /* PXExpression+PXExpressionHelpers.m */; };
 		685F091E1580B028EB5D5824 /* PXEditCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0274A105D3EDE204C26C /* PXEditCodeViewController.m */; };
+		685F0930217BB29E42D734EB /* PXIdentifierExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F09BFF12BC41F8D8ED904 /* PXIdentifierExpression.m */; };
 		685F09583AA462A23AC45002 /* PXCodeEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F09722DD0BA4EF8178CB4 /* PXCodeEditor.m */; };
 		685F096D5EAF982567BD4245 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 685F0FC5B29D58DE9A82B4FB /* Images.xcassets */; };
-		685F09BBD5FADA52E74B4BF5 /* PXConditionalExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0EC7A5BEF65B950C9C9B /* PXConditionalExpression.m */; };
-		685F09CAA8C5C1AF11A1D847 /* PXConditionalExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0EC7A5BEF65B950C9C9B /* PXConditionalExpression.m */; };
+		685F09A3A52FF7FD1F9A27C4 /* PXAssignmentExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F032436A143C7EFCCF285 /* PXAssignmentExpression.m */; };
 		685F09DAEA00E23D316B3637 /* PXFailureInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F061047292D6F781F69D5 /* PXFailureInfo.m */; };
 		685F0A0F6E1D7B8DAA2C2801 /* praxis.bnf in Resources */ = {isa = PBXBuildFile; fileRef = 685F0F23AF844A3AFFACE75D /* praxis.bnf */; };
 		685F0A14649EB926002E365F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0EA565CAA1B202F8EBB5 /* main.m */; };
@@ -67,25 +69,23 @@
 		685F0B255273482D6248E508 /* PXHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F08D931C2711737206CAA /* PXHole.m */; };
 		685F0B2F8764D56414A1D213 /* PXTestTaskGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0332212859137D10CD9E /* PXTestTaskGroup.m */; };
 		685F0B38BC7B5481884C2519 /* PXHoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F075477D0261EE6FBCC74 /* PXHoleView.m */; };
+		685F0B5FAFE62EA521D5BF3F /* PXCompoundExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F081D777F7A6DBB3C4196 /* PXCompoundExpression.m */; };
 		685F0B6FCF5EA324ACE8219B /* PXDefaultBuiltins.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0279E5CA8800CCCC8185 /* PXDefaultBuiltins.m */; };
 		685F0BABE474FE9FD6D6747F /* PXCompoundExpressionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F050539130AF66F448BC6 /* PXCompoundExpressionView.m */; };
 		685F0BDAAFE3C69F88C675E1 /* NSArray+PXArrayExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0C5FF68F07639AE7A6B7 /* NSArray+PXArrayExtensions.m */; };
 		685F0BE6CD106AF52DAD2DD0 /* LanguageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F029A2CF575EC0F27E60C /* LanguageTests.m */; };
-		685F0BF6DA8715EF4DF8B2D2 /* PXConstantExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F061FEF22FE06AA175319 /* PXConstantExpression.m */; };
 		685F0BFF0EC834A4C20D0BFE /* PXExecutionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0EB6253564D7EB63DB66 /* PXExecutionResult.m */; };
 		685F0C0161DDF20C77FF3B2F /* PXContinuation.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F09378EEF8B72750A22DD /* PXContinuation.m */; };
 		685F0C4514760500E81DC982 /* PXIdentifierExpressionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F033AEF3574D443203BF7 /* PXIdentifierExpressionView.m */; };
-		685F0C8716FB8AAC7F764E69 /* PXWhileExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F020F00D69E63466529A0 /* PXWhileExpression.m */; };
 		685F0CEA54FB9B26305E2FFE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F0CBE3D7B7EEB1806D230 /* LaunchScreen.xib */; };
 		685F0D26575A6422AF87BD0D /* PXValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F055960E6F824FD228D2C /* PXValue.m */; };
+		685F0D2DF49924F10703B091 /* PXConditionalExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F054846D7805194F396DB /* PXConditionalExpression.m */; };
 		685F0E235528A21F6470774F /* PXValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F055960E6F824FD228D2C /* PXValue.m */; };
-		685F0E87BA36E9EC1835719B /* PXIdentifierExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F05A14148D9E887E105E9 /* PXIdentifierExpression.m */; };
 		685F0E89D63A383A5679B58E /* PXExecutionContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0ABF29CF37E04AD997A6 /* PXExecutionContext.m */; };
-		685F0E9C38DD595A334B968F /* PXCallExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F014BB7CF5A74BB6BC8C9 /* PXCallExpression.m */; };
+		685F0EA45017239FEF6229AE /* PXCompoundExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F081D777F7A6DBB3C4196 /* PXCompoundExpression.m */; };
 		685F0EAAEA1D31F1E3DABEE7 /* PXArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F05BD437C33606F2C8E0E /* PXArgument.m */; };
-		685F0EBD996C8746C3E526E9 /* PXWhileExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F020F00D69E63466529A0 /* PXWhileExpression.m */; };
-		685F0EE8181E68C903C69E14 /* PXAssignmentExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0B5800B109EE38B5F3BA /* PXAssignmentExpression.m */; };
 		685F0F19FA8662E3600ABD43 /* PXCodeEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F09722DD0BA4EF8178CB4 /* PXCodeEditor.m */; };
+		685F0F5EBF0A307C9A253427 /* PXAssignmentExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F032436A143C7EFCCF285 /* PXAssignmentExpression.m */; };
 		685F0FC7888E975E80AAFE30 /* PXConstantExpressionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F07BFECB8D73B5EC62CCF /* PXConstantExpressionView.m */; };
 		6F919BB25B3B3DDDBE7C67D5 /* libPods-PraxisTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA7A2F4B042B699BE551332 /* libPods-PraxisTests.a */; };
 		76E1ECA7B2569B719E077ED6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4342049A1E275082BA484C2A /* libPods.a */; };
@@ -115,15 +115,13 @@
 		685F004A5E2AEF8989723C0C /* PXTestTaskGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXTestTaskGroup.h; sourceTree = "<group>"; };
 		685F004B50425F661069161D /* PXTaskPane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXTaskPane.m; sourceTree = "<group>"; };
 		685F008808F1B35C8298D7BE /* PXExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXExpression.h; sourceTree = "<group>"; };
+		685F0089F844973946296189 /* PXWhileExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXWhileExpression.m; sourceTree = "<group>"; };
 		685F00B35AB9FFC38C27FE97 /* PXWhileExpressionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXWhileExpressionView.m; sourceTree = "<group>"; };
 		685F00C1E7744316AA47FFE5 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		685F00EFD99037F86F1D8206 /* PXTaskProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXTaskProvider.m; sourceTree = "<group>"; };
-		685F014BB7CF5A74BB6BC8C9 /* PXCallExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXCallExpression.m; path = Expressions/PXCallExpression.m; sourceTree = "<group>"; };
 		685F01D8F1EF2273BC0BA406 /* PXExpressionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXExpressionType.h; sourceTree = "<group>"; };
-		685F01F3454DC9B6C3C20387 /* PXCompoundExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXCompoundExpression.m; path = Expressions/PXCompoundExpression.m; sourceTree = "<group>"; };
 		685F01F48A757C6F0905CD4D /* PXFailureType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXFailureType.h; sourceTree = "<group>"; };
 		685F020197A0F17DE5C3C78E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
-		685F020F00D69E63466529A0 /* PXWhileExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXWhileExpression.m; sourceTree = "<group>"; };
 		685F0274A105D3EDE204C26C /* PXEditCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXEditCodeViewController.m; sourceTree = "<group>"; };
 		685F0279E5CA8800CCCC8185 /* PXDefaultBuiltins.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXDefaultBuiltins.m; sourceTree = "<group>"; };
 		685F028E827AC6B28CF8FEBC /* PXIdentifierExpressionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXIdentifierExpressionView.h; sourceTree = "<group>"; };
@@ -131,9 +129,9 @@
 		685F02B1F25E6EB449F187F0 /* PXExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXExpression.m; sourceTree = "<group>"; };
 		685F02C5A69FE709EA9CA932 /* PXTaskPane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXTaskPane.h; sourceTree = "<group>"; };
 		685F02F76B83267D26DFAB1A /* PXParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXParser.h; sourceTree = "<group>"; };
+		685F032436A143C7EFCCF285 /* PXAssignmentExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXAssignmentExpression.m; sourceTree = "<group>"; };
 		685F0332212859137D10CD9E /* PXTestTaskGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXTestTaskGroup.m; sourceTree = "<group>"; };
 		685F0334E644C145CE1B3AEC /* PXExecutionContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXExecutionContext.h; sourceTree = "<group>"; };
-		685F03370CCD78A076679CB6 /* PXAssignmentExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXAssignmentExpression.h; path = Expressions/PXAssignmentExpression.h; sourceTree = "<group>"; };
 		685F033AEF3574D443203BF7 /* PXIdentifierExpressionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXIdentifierExpressionView.m; sourceTree = "<group>"; };
 		685F03596E6EF304C858EAD9 /* PXExpressionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXExpressionView.m; sourceTree = "<group>"; };
 		685F0372F244B5B490617535 /* PXContinuation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXContinuation.h; sourceTree = "<group>"; };
@@ -141,45 +139,48 @@
 		685F03B3732E095347E0CB50 /* UIColor+PXColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+PXColor.h"; sourceTree = "<group>"; };
 		685F03EDA8DAACA1C651236F /* PXTaskGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXTaskGroupView.m; sourceTree = "<group>"; };
 		685F0410159F6BE22657E999 /* PXHoleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHoleView.h; sourceTree = "<group>"; };
+		685F046E202728FE9347916E /* PXIdentifierExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXIdentifierExpression.h; sourceTree = "<group>"; };
 		685F04F1104D97D32A5A6C78 /* PXTaskGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXTaskGroup.m; sourceTree = "<group>"; };
 		685F050539130AF66F448BC6 /* PXCompoundExpressionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXCompoundExpressionView.m; sourceTree = "<group>"; };
 		685F050D78223CC1216949E9 /* PXHole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXHole.h; sourceTree = "<group>"; };
 		685F05320C73781BF0F4C33C /* PXCompoundExpressionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXCompoundExpressionView.h; sourceTree = "<group>"; };
+		685F054846D7805194F396DB /* PXConditionalExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXConditionalExpression.m; sourceTree = "<group>"; };
 		685F055960E6F824FD228D2C /* PXValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXValue.m; sourceTree = "<group>"; };
 		685F0572F0A1C56A1A09C721 /* PXBuiltin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXBuiltin.m; sourceTree = "<group>"; };
 		685F0586CBCBF12F1CF53AC9 /* PXFailureInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXFailureInfo.h; sourceTree = "<group>"; };
-		685F05A14148D9E887E105E9 /* PXIdentifierExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXIdentifierExpression.m; path = Expressions/PXIdentifierExpression.m; sourceTree = "<group>"; };
 		685F05BD437C33606F2C8E0E /* PXArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXArgument.m; sourceTree = "<group>"; };
-		685F05C9EE4EEAACEBE0776C /* PXIdentifierExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXIdentifierExpression.h; path = Expressions/PXIdentifierExpression.h; sourceTree = "<group>"; };
 		685F05DC409746AB33EE284C /* PXConstantExpressionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXConstantExpressionView.h; sourceTree = "<group>"; };
 		685F061047292D6F781F69D5 /* PXFailureInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXFailureInfo.m; sourceTree = "<group>"; };
 		685F061F43F118A687AAD379 /* PXAssignmentExpressionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXAssignmentExpressionView.m; sourceTree = "<group>"; };
-		685F061FEF22FE06AA175319 /* PXConstantExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXConstantExpression.m; path = Expressions/PXConstantExpression.m; sourceTree = "<group>"; };
 		685F064199AFDF6EF90BDD03 /* PXFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXFunction.h; sourceTree = "<group>"; };
 		685F064A5B6839738310891B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
-		685F066F3E7595F4B01D47C0 /* PXConstantExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXConstantExpression.h; path = Expressions/PXConstantExpression.h; sourceTree = "<group>"; };
+		685F066512DEC2EB69ABAA97 /* PXAssignmentExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXAssignmentExpression.h; sourceTree = "<group>"; };
+		685F0699ABD8A8F6C9288736 /* PXConditionalExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXConditionalExpression.h; sourceTree = "<group>"; };
 		685F06E472E9B6ED587FE7CC /* PXCodeEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXCodeEditor.h; sourceTree = "<group>"; };
+		685F0713DE8F446CBC4CACDC /* PXCallExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXCallExpression.h; sourceTree = "<group>"; };
 		685F07151E98409E1E835274 /* PXParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXParser.m; sourceTree = "<group>"; };
 		685F0750D4F8E5DDD0FA3C9A /* PXExpression+PXExpressionHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PXExpression+PXExpressionHelpers.h"; sourceTree = "<group>"; };
 		685F0751F3C5E6CF04FE0B8F /* PXTaskGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXTaskGroup.h; sourceTree = "<group>"; };
 		685F075477D0261EE6FBCC74 /* PXHoleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHoleView.m; sourceTree = "<group>"; };
 		685F07BFECB8D73B5EC62CCF /* PXConstantExpressionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXConstantExpressionView.m; sourceTree = "<group>"; };
+		685F07E46FD938092AE13BFF /* PXCompoundExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXCompoundExpression.h; sourceTree = "<group>"; };
+		685F081D777F7A6DBB3C4196 /* PXCompoundExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXCompoundExpression.m; sourceTree = "<group>"; };
 		685F085F06978EBA312BB30D /* PXFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXFunction.m; sourceTree = "<group>"; };
-		685F08AF6E5D009C12160750 /* PXCompoundExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXCompoundExpression.h; path = Expressions/PXCompoundExpression.h; sourceTree = "<group>"; };
 		685F08D931C2711737206CAA /* PXHole.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHole.m; sourceTree = "<group>"; };
 		685F08FDF73463311B6D2D02 /* Praxis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Praxis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		685F09378EEF8B72750A22DD /* PXContinuation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXContinuation.m; sourceTree = "<group>"; };
 		685F09722DD0BA4EF8178CB4 /* PXCodeEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXCodeEditor.m; sourceTree = "<group>"; };
 		685F09941A524F6B38FB1414 /* PXExpression+PXExpressionHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PXExpression+PXExpressionHelpers.m"; sourceTree = "<group>"; };
 		685F09AA382EB802C5C39BAF /* PXValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXValue.h; sourceTree = "<group>"; };
-		685F09B64BF41393A56AEA94 /* PXCallExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXCallExpression.h; path = Expressions/PXCallExpression.h; sourceTree = "<group>"; };
+		685F09BFF12BC41F8D8ED904 /* PXIdentifierExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXIdentifierExpression.m; sourceTree = "<group>"; };
+		685F09DFA24FE8D4339807BE /* PXWhileExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXWhileExpression.h; sourceTree = "<group>"; };
 		685F0A0D0A84F1B8250648FE /* PXVisuals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXVisuals.h; sourceTree = "<group>"; };
 		685F0A425B067340BF807E50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		685F0A575C325C4E5A2BF788 /* PXWhileExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXWhileExpression.h; sourceTree = "<group>"; };
 		685F0A82066AFBBADFADB490 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		685F0A8990FFF5C53B5D96B9 /* UIColor+PXColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PXColor.m"; sourceTree = "<group>"; };
 		685F0ABF29CF37E04AD997A6 /* PXExecutionContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXExecutionContext.m; sourceTree = "<group>"; };
-		685F0B5800B109EE38B5F3BA /* PXAssignmentExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXAssignmentExpression.m; path = Expressions/PXAssignmentExpression.m; sourceTree = "<group>"; };
+		685F0AD61B024516A9ADBAC4 /* PXCallExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXCallExpression.m; sourceTree = "<group>"; };
+		685F0B69BE7CF2872F1762BC /* PXConstantExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXConstantExpression.h; sourceTree = "<group>"; };
 		685F0C5FF68F07639AE7A6B7 /* NSArray+PXArrayExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PXArrayExtensions.m"; sourceTree = "<group>"; };
 		685F0C8D4F30676930317143 /* PXTaskGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXTaskGroupView.h; sourceTree = "<group>"; };
 		685F0CCA01D0845423649DC8 /* PXTaskProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXTaskProvider.h; sourceTree = "<group>"; };
@@ -192,9 +193,8 @@
 		685F0E8A3FEC114FAB3C4B5E /* PXDefaultBuiltins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDefaultBuiltins.h; sourceTree = "<group>"; };
 		685F0EA565CAA1B202F8EBB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		685F0EB6253564D7EB63DB66 /* PXExecutionResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXExecutionResult.m; sourceTree = "<group>"; };
-		685F0EC7A5BEF65B950C9C9B /* PXConditionalExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PXConditionalExpression.m; path = Expressions/PXConditionalExpression.m; sourceTree = "<group>"; };
 		685F0EEC8CA42F5619CAB3AB /* PXExecutionResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXExecutionResult.h; sourceTree = "<group>"; };
-		685F0F147923792712A26677 /* PXConditionalExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PXConditionalExpression.h; path = Expressions/PXConditionalExpression.h; sourceTree = "<group>"; };
+		685F0EF5816CB2FAB3590E15 /* PXConstantExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXConstantExpression.m; sourceTree = "<group>"; };
 		685F0F23AF844A3AFFACE75D /* praxis.bnf */ = {isa = PBXFileReference; lastKnownFileType = file.bnf; path = praxis.bnf; sourceTree = "<group>"; };
 		685F0F593C7C49CA601D19AE /* PXBuiltin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXBuiltin.h; sourceTree = "<group>"; };
 		685F0FC5B29D58DE9A82B4FB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 				685F0CCE9EB0433D2E22A68B /* PXDefaultBuiltins+Decl.h */,
 				685F0F23AF844A3AFFACE75D /* praxis.bnf */,
 				685F0C38830575B38F037EE6 /* Generated */,
-				685F07AF82A58DB258155CD7 /* Expression */,
+				685F0A2B28C23ED6919B675C /* Expressions */,
 			);
 			path = Language;
 			sourceTree = "<group>";
@@ -327,25 +327,25 @@
 			path = Praxis;
 			sourceTree = "<group>";
 		};
-		685F07AF82A58DB258155CD7 /* Expression */ = {
+		685F0A2B28C23ED6919B675C /* Expressions */ = {
 			isa = PBXGroup;
 			children = (
-				685F09B64BF41393A56AEA94 /* PXCallExpression.h */,
-				685F03370CCD78A076679CB6 /* PXAssignmentExpression.h */,
-				685F05A14148D9E887E105E9 /* PXIdentifierExpression.m */,
-				685F066F3E7595F4B01D47C0 /* PXConstantExpression.h */,
-				685F0B5800B109EE38B5F3BA /* PXAssignmentExpression.m */,
-				685F08AF6E5D009C12160750 /* PXCompoundExpression.h */,
-				685F05C9EE4EEAACEBE0776C /* PXIdentifierExpression.h */,
-				685F061FEF22FE06AA175319 /* PXConstantExpression.m */,
-				685F0EC7A5BEF65B950C9C9B /* PXConditionalExpression.m */,
-				685F014BB7CF5A74BB6BC8C9 /* PXCallExpression.m */,
-				685F0F147923792712A26677 /* PXConditionalExpression.h */,
-				685F01F3454DC9B6C3C20387 /* PXCompoundExpression.m */,
-				685F020F00D69E63466529A0 /* PXWhileExpression.m */,
-				685F0A575C325C4E5A2BF788 /* PXWhileExpression.h */,
+				685F0713DE8F446CBC4CACDC /* PXCallExpression.h */,
+				685F0AD61B024516A9ADBAC4 /* PXCallExpression.m */,
+				685F09DFA24FE8D4339807BE /* PXWhileExpression.h */,
+				685F0089F844973946296189 /* PXWhileExpression.m */,
+				685F07E46FD938092AE13BFF /* PXCompoundExpression.h */,
+				685F081D777F7A6DBB3C4196 /* PXCompoundExpression.m */,
+				685F0B69BE7CF2872F1762BC /* PXConstantExpression.h */,
+				685F0EF5816CB2FAB3590E15 /* PXConstantExpression.m */,
+				685F066512DEC2EB69ABAA97 /* PXAssignmentExpression.h */,
+				685F032436A143C7EFCCF285 /* PXAssignmentExpression.m */,
+				685F046E202728FE9347916E /* PXIdentifierExpression.h */,
+				685F09BFF12BC41F8D8ED904 /* PXIdentifierExpression.m */,
+				685F0699ABD8A8F6C9288736 /* PXConditionalExpression.h */,
+				685F054846D7805194F396DB /* PXConditionalExpression.m */,
 			);
-			name = Expression;
+			path = Expressions;
 			sourceTree = "<group>";
 		};
 		685F0AD767B96661A3C22582 /* Expression Views */ = {
@@ -620,12 +620,6 @@
 				685F09583AA462A23AC45002 /* PXCodeEditor.m in Sources */,
 				685F047CD9AA0A972C6F97F1 /* PXTaskGroup.m in Sources */,
 				685F0295A54062257D32E9C6 /* PXTaskGroupView.m in Sources */,
-				685F0396A8083ACE7006CC8C /* PXIdentifierExpression.m in Sources */,
-				685F0508420CC2300640D398 /* PXAssignmentExpression.m in Sources */,
-				685F035325A14124D6EAB732 /* PXConstantExpression.m in Sources */,
-				685F09CAA8C5C1AF11A1D847 /* PXConditionalExpression.m in Sources */,
-				685F0E9C38DD595A334B968F /* PXCallExpression.m in Sources */,
-				685F06EE725158C7F32525CD /* PXCompoundExpression.m in Sources */,
 				685F0403F87A5081A5047B3D /* PXTestTaskGroup.m in Sources */,
 				685F021C8F42642B8E1D5852 /* PXTaskProvider.m in Sources */,
 				685F0A755E32B856269A677E /* PXExpressionView.m in Sources */,
@@ -634,9 +628,15 @@
 				685F089BDBE504655B1D0599 /* UIColor+PXColor.m in Sources */,
 				685F0167C03BD5E049BCC3B2 /* PXIdentifierExpressionView.m in Sources */,
 				685F05643683AB1607208C14 /* PXAssignmentExpressionView.m in Sources */,
-				685F0EBD996C8746C3E526E9 /* PXWhileExpression.m in Sources */,
 				685F06A93D879BD1A8C1F07B /* PXWhileExpressionView.m in Sources */,
 				685F0A9029AF118758576451 /* PXCompoundExpressionView.m in Sources */,
+				685F054D61E0F38AF4B832E5 /* PXCallExpression.m in Sources */,
+				685F01E6CA60878AE7B2BD62 /* PXWhileExpression.m in Sources */,
+				685F0B5FAFE62EA521D5BF3F /* PXCompoundExpression.m in Sources */,
+				685F0079CA340C26904FFD21 /* PXConstantExpression.m in Sources */,
+				685F09A3A52FF7FD1F9A27C4 /* PXAssignmentExpression.m in Sources */,
+				685F03380A12E60B73E0EE28 /* PXIdentifierExpression.m in Sources */,
+				685F0D2DF49924F10703B091 /* PXConditionalExpression.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,12 +666,6 @@
 				685F0F19FA8662E3600ABD43 /* PXCodeEditor.m in Sources */,
 				685F03F1CCB7BA985079CD87 /* PXTaskGroup.m in Sources */,
 				685F04FE35E539DA109666CC /* PXTaskGroupView.m in Sources */,
-				685F0E87BA36E9EC1835719B /* PXIdentifierExpression.m in Sources */,
-				685F0EE8181E68C903C69E14 /* PXAssignmentExpression.m in Sources */,
-				685F0BF6DA8715EF4DF8B2D2 /* PXConstantExpression.m in Sources */,
-				685F09BBD5FADA52E74B4BF5 /* PXConditionalExpression.m in Sources */,
-				685F035591708152B09E5BDA /* PXCallExpression.m in Sources */,
-				685F02F33B205414DD2C07AA /* PXCompoundExpression.m in Sources */,
 				685F0B2F8764D56414A1D213 /* PXTestTaskGroup.m in Sources */,
 				685F05326C412F0BF7663A79 /* PXTaskProvider.m in Sources */,
 				685F06EF9ABDACA7D0CDA092 /* PXExpressionView.m in Sources */,
@@ -680,9 +674,15 @@
 				685F048BA7CE96F0D46AAF5F /* UIColor+PXColor.m in Sources */,
 				685F0C4514760500E81DC982 /* PXIdentifierExpressionView.m in Sources */,
 				685F00C82E922FD656BB7DBC /* PXAssignmentExpressionView.m in Sources */,
-				685F0C8716FB8AAC7F764E69 /* PXWhileExpression.m in Sources */,
 				685F088DC8DD790F6C14EFCA /* PXWhileExpressionView.m in Sources */,
 				685F0BABE474FE9FD6D6747F /* PXCompoundExpressionView.m in Sources */,
+				685F07A55380988CC25784AD /* PXCallExpression.m in Sources */,
+				685F08143E2FA8AC62B14CEA /* PXWhileExpression.m in Sources */,
+				685F0EA45017239FEF6229AE /* PXCompoundExpression.m in Sources */,
+				685F02D669B3490C4ABBA021 /* PXConstantExpression.m in Sources */,
+				685F0F5EBF0A307C9A253427 /* PXAssignmentExpression.m in Sources */,
+				685F0930217BB29E42D734EB /* PXIdentifierExpression.m in Sources */,
+				685F087C0402CC099F4F2365 /* PXConditionalExpression.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
