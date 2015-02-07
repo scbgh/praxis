@@ -1,0 +1,149 @@
+@h {
+#import "PXExpression.h"
+#import "PXExpressionType.h"
+#import "PXExpression+PXExpressionHelpers.h"
+#import "PXFunction.h"
+#import "PXArgument.h"
+#import "PXValue.h"
+#import "NSArray+PXArrayExtensions.h"
+}
+
+@before {
+    [self.tokenizer.symbolState add:@":="];
+    [self.tokenizer setTokenizerState:self.tokenizer.wordState from:'_' to:'_'];
+}
+
+expr = (conditionalExpr | callExpr | compoundExpr | constantExpr | assignmentExpr | identifierExpr | whileExpr | function);
+
+compoundExpr = '{'! liststart expr (';'! expr)* '}'! {
+    NSArray *exprs = [[self.assembly objectsAbove:@"$liststart"] reversedArray];
+    POP();
+    PUSH([PXExpression compoundWithExpressions:exprs]);
+};
+
+constantExpr = intLiteral | floatLiteral | stringLiteral | boolLiteral | unitLiteral;
+
+identifierExpr = identifier {
+    PUSH([PXExpression identifierWithName:POP_STR()]);
+};
+
+assignmentExpr = { [LS(2) isEqual:@":="] }? identifier ':='! expr {
+    PXExpression *expr = POP();
+    PUSH([PXExpression assignmentWithIdentifierName:POP_STR() expression:expr]);
+};
+
+conditionalExpr = 'if'! '('! expr ')'! expr elsePart {
+    id last = POP();
+    PXExpression *falseExpr;
+    PXExpression *trueExpr;
+    if ([last isEqual:@"$haselse"]) {
+        falseExpr = POP();
+        trueExpr = POP();
+    } else {
+        trueExpr = last;
+    }
+
+    PXExpression *conditionExpr = POP();
+    PUSH([PXExpression conditionalWithCondition:conditionExpr trueExpression:trueExpr falseExpression:falseExpr]);
+};
+
+elsePart = ('else'! expr {
+    PUSH(@"$haselse");
+});
+
+callExpr = { [LS(2) isEqual:@"("] }? identifier '('! liststart (expr (','! expr)*)? ')'! '['! valueTypeName ']'! {
+    PXExpressionType type = POP_INT();
+    NSArray *args = [[self.assembly objectsAbove:@"$liststart"] reversedArray];
+    POP();
+    NSString *ident = POP_STR();
+    PUSH([PXExpression callWithIdentifier:ident arguments:args returnType:type]);
+};
+
+whileExpr = 'while'! '('! expr ')'! expr {
+    PXExpression *bodyExpr = POP();
+    PXExpression *conditionExpr = POP();
+    PUSH([PXExpression whileLoopWithCondition:conditionExpr body:bodyExpr]);
+};
+
+function = 'fun'! '('! liststart (arg (','! arg)*)? ')'! '['! expr ']'! {
+    PXExpression *expr = POP();
+    NSArray *args = [[self.assembly objectsAbove:@"$liststart"] reversedArray];
+    PXFunction *function = [PXFunction functionWithArguments:args body:expr];
+    POP();
+    PUSH([PXExpression constantWithValue:[PXValue valueWithFunction:function]]);
+};
+
+arg = identifier valueTypeName {
+    PXExpressionType type = POP_INT();
+    PUSH([PXArgument argumentWithName:POP_STR() type:type]);
+};
+
+liststart = Empty {
+    PUSH(@"$liststart");
+};
+
+intLiteral = 'int'! '('! Number { PUSH_INT(POP_DOUBLE()); } ')'! {
+    PUSH([PXExpression constantWithValue:[PXValue valueWithInt:POP_INT()]]);
+};
+
+floatLiteral = Number {
+    PUSH([PXExpression constantWithValue:[PXValue valueWithDouble:POP_DOUBLE()]]);
+};
+
+stringLiteral = QuotedString {
+    PUSH([PXExpression constantWithValue:[PXValue valueWithString:POP_STR()]]);
+};
+
+boolLiteral = ('true' | 'false') {
+    PUSH([PXExpression constantWithValue:[PXValue valueWithBool:[POP_STR() isEqualToString:@"true"]]]);
+};
+
+unitLiteral = 'unit' {
+    PUSH([PXExpression constantWithValue:[PXValue unitValue]]);
+};
+
+valueTypeName = (intType | floatType | boolType | stringType | numericType | functionType | scalarType | valueType);
+
+typeName = (valueTypeName | anyType | unitType);
+
+intType = 'int'! {
+    PUSH_INT(PXIntegerType);
+};
+
+floatType = 'float'! {
+    PUSH_INT(PXFloatType);
+};
+
+boolType = 'bool'! {
+    PUSH_INT(PXBooleanType);
+};
+
+stringType = 'string'! {
+    PUSH_INT(PXStringType);
+};
+
+unitType = 'void'! {
+    PUSH_INT(PXVoidType);
+};
+
+functionType = 'fun'! {
+    PUSH_INT(PXFunctionType);
+};
+
+numericType = 'number'! {
+    PUSH_INT(PXNumericType);
+};
+
+scalarType = 'scalar'! {
+    PUSH_INT(PXScalarType);
+};
+
+valueType = 'value'! {
+    PUSH_INT(PXValueType);
+};
+
+anyType = 'any'! {
+    PUSH_INT(PXAnyType);
+};
+
+identifier = Word;
