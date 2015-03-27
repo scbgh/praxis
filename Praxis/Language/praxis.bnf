@@ -91,7 +91,9 @@ floatLiteral = Number {
 };
 
 stringLiteral = QuotedString {
-    PUSH([PXExpression constantWithValue:[PXValue valueWithString:POP_STR()]]);
+    NSString *string = POP_STR();
+    string = [string substringWithRange:NSMakeRange(1, string.length - 2)];
+    PUSH([PXExpression constantWithValue:[PXValue valueWithString:string]]);
 };
 
 boolLiteral = ('true' | 'false') {

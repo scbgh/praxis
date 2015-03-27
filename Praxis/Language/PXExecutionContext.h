@@ -12,7 +12,7 @@
 - (PXExecutionContext *)createChildContext;
 
 @property(readonly, nonatomic) int id;
-@property(readonly, nonatomic, strong) PXExecutionContext *parentContext;
+@property(nonatomic, strong) PXExecutionContext *parentContext;
 @property(nonatomic, strong) PXExecutionContext *globalContext;
 @property(nonatomic, strong) PXContinuation *currentContinuation;
 @property(nonatomic, strong) PXDebugContext *dbg;

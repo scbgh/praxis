@@ -5,10 +5,7 @@
   NSString *_stringValue;
   NSNumber *_numberValue;
   PXFunction *_functionValue;
-  PXExpressionType _type;
 }
-
-@synthesize type = _type;
 
 - (instancetype)initWithStringValue:(NSString *)stringValue {
   self = [super init];

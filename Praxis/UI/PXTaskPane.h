@@ -5,4 +5,5 @@
 
 @property (nonatomic, strong) NSArray *taskGroups;
 
+- (void)refresh;
 @end

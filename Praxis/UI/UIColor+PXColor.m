@@ -18,16 +18,16 @@
   return [UIColor colorWithRed:1.f green:0.f blue:1.f alpha:1.f];
 }
 
-+ (UIColor *)identifierColor {
-  return [UIColor colorWithRed:0.f green:0.f blue:0.f alpha:.1f];
-}
-
 + (UIColor *)keywordColor {
   return [UIColor colorWithRed:0.f green:0.f blue:1.f alpha:1.f];
 }
 
 + (UIColor *)functionColor {
   return [UIColor colorWithRed:.5f green:.7f blue:.2f alpha:1.f];
+}
+
++ (UIColor *)selectionColor {
+  return [UIColor colorWithRed:.7f green:.3f blue:.1f alpha:.2f];
 }
 
 + (UIColor *)colorWithExpressionType:(PXExpressionType)type {

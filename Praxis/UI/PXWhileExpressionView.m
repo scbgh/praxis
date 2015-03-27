@@ -2,88 +2,44 @@
 #import "UIColor+PXColor.h"
 #import "PXHoleView.h"
 #import "PXVisuals.h"
+#import "PXCodeEditor.h"
+#import "PXCodeLayoutFactory.h"
+#import "PXIndentElement.h"
+#import "PXHoleElement.h"
+#import "PXKeywordElement.h"
 
-@implementation PXWhileExpressionView
+@implementation PXWhileExpressionView {
+  PXHoleView *_conditionHoleView;
+  PXHoleView *_bodyHoleView;
+}
 
 - (void)invalidateViews {
   [super invalidateViews];
 
   PXWhileExpression *expression = (PXWhileExpression *) self.expression;
-  PXHoleView *conditionHole = [PXHoleView viewWithHole:expression.conditionExpressionHole];
-  PXHoleView *bodyHole = [PXHoleView viewWithHole:expression.bodyExpressionHole];
+  PXCodeLayoutFactory *factory = [PXCodeLayoutFactory factoryWithEditor:self.editor];
 
-  UIView *conditionContainer = [UIView new];
-  UIView *bodyContainer = [UIView new];
+  [factory addLineWithElements:@[[PXKeywordElement elementWithKeyword:@"while" key:@"While"], [PXHoleElement elementWithHole:expression.conditionExpressionHole key:@"Condition"]]];
+  [factory addLineWithElements:@[[PXIndentElement elementWithIndent:kEditorIndent], [PXHoleElement elementWithHole:expression.bodyExpressionHole key:@"Body"]]];
+  [factory createLayoutInView:self];
 
-  UILabel *whileLabel = [UILabel new];
-  whileLabel.translatesAutoresizingMaskIntoConstraints = NO;
-  whileLabel.text = @"while";
-  whileLabel.textColor = [UIColor keywordColor];
-  conditionHole.translatesAutoresizingMaskIntoConstraints = NO;
-  bodyHole.translatesAutoresizingMaskIntoConstraints = NO;
-  conditionContainer.translatesAutoresizingMaskIntoConstraints = NO;
-  bodyContainer.translatesAutoresizingMaskIntoConstraints = NO;
-
-  [conditionContainer addSubview:whileLabel];
-  [conditionContainer addSubview:conditionHole];
-  [bodyContainer addSubview:bodyHole];
-
-  [self addSubview:conditionContainer];
-  [self addSubview:bodyContainer];
-
-  [conditionContainer addConstraints:
-      [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[whileLabel]-space-[conditionHole]|"
-                                              options:0
-                                              metrics:@{@"space" : @(kEditorTokenSpacing)}
-                                                views:NSDictionaryOfVariableBindings(whileLabel, conditionHole)]];
-  [conditionContainer addConstraints:
-      [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[whileLabel]|"
-                                              options:0
-                                              metrics:nil
-                                                views:NSDictionaryOfVariableBindings(whileLabel)]];
-  [conditionContainer addConstraints:
-      [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[conditionHole]|"
-                                              options:0
-                                              metrics:nil
-                                                views:NSDictionaryOfVariableBindings(conditionHole)]];
-  [bodyContainer addConstraints:
-      [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-indent-[bodyHole]|"
-                                              options:0
-                                              metrics:@{@"indent" : @(kEditorIndent)}
-                                                views:NSDictionaryOfVariableBindings(bodyHole)]];
-  [bodyContainer addConstraints:
-      [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[bodyHole]|"
-                                              options:0
-                                              metrics:nil
-                                                views:NSDictionaryOfVariableBindings(bodyHole)]];
-  [self addConstraints:
-      [NSLayoutConstraint constraintsWithVisualFormat:@"H:[self(>=conditionContainer,>=bodyContainer,==0@low)]"
-                                              options:0
-                                              metrics:@{@"low" : @(UILayoutPriorityDefaultLow)}
-                                                views:NSDictionaryOfVariableBindings(conditionContainer, bodyContainer, self)]];
-  [self addConstraints:
-      [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[conditionContainer]"
-                                              options:0
-                                              metrics:nil
-                                                views:NSDictionaryOfVariableBindings(conditionContainer)]];
-  [self addConstraints:
-      [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[bodyContainer]"
-                                              options:0
-                                              metrics:nil
-                                                views:NSDictionaryOfVariableBindings(bodyContainer)]];
-  [self addConstraints:
-      [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[conditionContainer]-space-[bodyContainer]|"
-                                              options:0
-                                              metrics:@{@"space" : @(kEditorLineSpacing)}
-                                                views:NSDictionaryOfVariableBindings(conditionContainer, bodyContainer)]];
+  _conditionHoleView = factory.views[@"Condition"];
+  _bodyHoleView = factory.views[@"Body"];
 };
+
+- (void)refresh {
+  [_conditionHoleView refresh];
+  [_bodyHoleView refresh];
+}
+
 
 @end
 
 @implementation PXWhileExpression (PXExpressionView)
 
 - (PXWhileExpressionView *)createView {
-  return [PXWhileExpressionView viewWithExpression:self];
+  PXWhileExpressionView *view = [PXWhileExpressionView viewWithExpression:self];
+  return view;
 }
 
 @end

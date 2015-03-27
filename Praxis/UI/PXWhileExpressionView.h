@@ -3,6 +3,8 @@
 #import "PXExpressionView.h"
 #import "PXWhileExpression.h"
 
+@class PXCodeEditor;
+
 @interface PXWhileExpressionView : PXExpressionView
 
 @end

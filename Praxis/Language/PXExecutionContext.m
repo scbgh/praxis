@@ -11,11 +11,8 @@ static int ctr = 2000;
 @implementation PXExecutionContext {
   int _id;
   NSMutableDictionary *_environment;
-  PXExecutionContext *_parentContext;
   PXContinuation *_currentContinuation;
 }
-
-@synthesize parentContext = _parentContext;
 
 - (instancetype)commonInit {
   _environment = [NSMutableDictionary dictionary];
@@ -30,7 +27,7 @@ static int ctr = 2000;
     [self commonInit];
     self.dbg = parentContext.dbg;
     self.globalContext = parentContext.globalContext;
-    _parentContext = parentContext;
+    self.parentContext = parentContext;
   }
   return self;
 }

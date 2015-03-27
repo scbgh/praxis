@@ -1,14 +1,19 @@
 @import Foundation;
 @import UIKit;
-@class PXExpression;
+#import "PXExpression.h"
+
+@class PXCodeEditor;
+@class PXHoleView;
 
 @interface PXExpressionView : UIView
 
 - (instancetype)initWithExpression:(PXExpression *)expression;
 + (instancetype)viewWithExpression:(PXExpression *)expression;
 
+- (void)refresh;
 - (void)invalidateViews;
 
-@property (nonatomic, strong) PXExpression *expression;
+@property(nonatomic, weak) PXCodeEditor *editor;
+@property(nonatomic, readonly, strong) PXExpression *expression;
 
 @end

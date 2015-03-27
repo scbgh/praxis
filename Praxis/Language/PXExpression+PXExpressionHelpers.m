@@ -83,10 +83,12 @@
 + (PXCallExpression *)callWithBuiltin:(PXBuiltin *)builtin arguments:(NSArray *)array returnType:(PXExpressionType)type {
   PXCallExpression *expr = [PXCallExpression expressionWithType:type];
   expr.builtin = builtin;
-  expr.numberOfArguments = array.count;
-  for (NSUInteger i = 0; i < expr.numberOfArguments; i++) {
-    PXHole *hole = [expr argumentHoleAtIndex:i];
-    hole.expression = (PXExpression *) array[i];
+  expr.numberOfArguments = (NSUInteger)builtin.arity;
+  if (array != nil) {
+    for (NSUInteger i = 0; i < expr.numberOfArguments; i++) {
+      PXHole *hole = [expr argumentHoleAtIndex:i];
+      hole.expression = (PXExpression *) array[i];
+    }
   }
   return expr;
 }

@@ -18,7 +18,7 @@ enum {
 - (instancetype)init {
   self = [super init];
   if (self) {
-    _valueExpressionHole = [PXHole holeWithExpressionType:PXAnyType];
+    _valueExpressionHole = [PXHole holeWithExpressionType:PXValueType parentExpression:self];
   }
   return self;
 }

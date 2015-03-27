@@ -132,7 +132,7 @@
     _holes = newHoles;
   } else {
     for (int i = _holes.count; i < numberOfArguments; i++) {
-      [_holes addObject:[PXHole holeWithExpressionType:PXAnyType]];
+      [_holes addObject:[PXHole holeWithExpressionType:PXAnyType parentExpression:self]];
     }
   }
   _numberOfArguments = numberOfArguments;

@@ -3,49 +3,51 @@
 #import "UIColor+PXColor.h"
 #import "PXHole.h"
 #import "PXVisuals.h"
+#import "PXCodeEditor.h"
+#import "PXCodeLayoutFactory.h"
+#import "PXIdentifierElement.h"
+#import "PXSymbolElement.h"
+#import "PXHoleElement.h"
+#import "PXLabel.h"
 
-@implementation PXAssignmentExpressionView
+@implementation PXAssignmentExpressionView {
+  PXLabel *_identifierLabel;
+  PXHoleView *_valueHoleView;
+}
 
 - (void)invalidateViews {
   [super invalidateViews];
 
-  PXAssignmentExpression *expression = (PXAssignmentExpression *)self.expression;
+  PXAssignmentExpression *expression = (PXAssignmentExpression *) self.expression;
+  PXCodeLayoutFactory *factory = [PXCodeLayoutFactory factoryWithEditor:self.editor];
 
-  UILabel *identifierLabel = [UILabel new];
-  UILabel *eqLabel = [UILabel new];
-  PXHoleView *valueHole = [PXHoleView viewWithHole:expression.valueExpressionHole];
+  [factory addLineWithElements:@[
+      [PXIdentifierElement elementWithIdentifier:expression.identifier type:expression.valueExpressionHole.expression.type key:@"Identifier"],
+      [PXSymbolElement elementWithSymbol:@":="],
+      [PXHoleElement elementWithHole:expression.valueExpressionHole key:@"Value"]
+  ]];
+  [factory createLayoutInView:self];
 
-  identifierLabel.text = expression.identifier;
-  identifierLabel.backgroundColor = [UIColor identifierColor];
-  if (valueHole.hole.expression != nil) {
-    identifierLabel.textColor = [UIColor colorWithExpressionType:valueHole.hole.expression.type];
-  } else {
-    identifierLabel.textColor = [UIColor blackColor];
-  }
-  eqLabel.text = @"=";
-
-  identifierLabel.translatesAutoresizingMaskIntoConstraints = NO;
-  eqLabel.translatesAutoresizingMaskIntoConstraints = NO;
-  valueHole.translatesAutoresizingMaskIntoConstraints = NO;
-
-  [self addSubview:identifierLabel];
-  [self addSubview:eqLabel];
-  [self addSubview:valueHole];
-
-  NSString *horizontalConstraint = [NSString stringWithFormat:@"H:|[identifierLabel]-%d-[eqLabel]-%d-[valueHole]|", kEditorTokenSpacing, kEditorTokenSpacing];
-
-  [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[identifierLabel]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(identifierLabel)]];
-  [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[eqLabel]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(eqLabel)]];
-  [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[valueHole]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(valueHole)]];
-  [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:horizontalConstraint options:0 metrics:nil views:NSDictionaryOfVariableBindings(identifierLabel, eqLabel, valueHole)]];
+  _identifierLabel = factory.views[@"Identifier"];
+  _valueHoleView = factory.views[@"Value"];
+  [self setNeedsLayout];
+  [self layoutIfNeeded];
 }
+
+- (void)refresh {
+  PXAssignmentExpression *expression = (PXAssignmentExpression *) self.expression;
+  _identifierLabel.textColor = [UIColor colorWithExpressionType:expression.valueExpressionHole.expression.type];
+  _valueHoleView.refresh;
+}
+
 
 @end
 
 @implementation PXAssignmentExpression (PXExpressionView)
 
 - (PXAssignmentExpressionView *)createView {
-  return [PXAssignmentExpressionView viewWithExpression:self];
+  PXAssignmentExpressionView *view = [PXAssignmentExpressionView viewWithExpression:self];
+  return view;
 }
 
 @end

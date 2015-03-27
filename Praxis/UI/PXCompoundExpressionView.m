@@ -2,98 +2,84 @@
 #import "UIColor+PXColor.h"
 #import "PXHoleView.h"
 #import "PXVisuals.h"
+#import "PXCodeEditor.h"
+#import "PXCodeLayoutFactory.h"
+#import "PXKeywordElement.h"
+#import "PXIndentElement.h"
+#import "PXHoleElement.h"
+#import "PXButtonElement.h"
 
-@implementation PXCompoundExpressionView
+@implementation PXCompoundExpressionView {
+  CALayer *_borderLayer;
+  NSArray *_holeViews;
+}
+
+- (instancetype)initWithExpression:(PXExpression *)expression {
+  self = [super initWithExpression:expression];
+  if (self) {
+    _borderLayer = [CALayer layer];
+    _borderLayer.backgroundColor = [UIColor blackColor].CGColor;
+    [self.layer addSublayer:_borderLayer];
+  }
+
+  return self;
+}
 
 - (void)invalidateViews {
   [super invalidateViews];
 
   PXCompoundExpression *expression = (PXCompoundExpression *) self.expression;
+  PXCodeLayoutFactory *factory = [PXCodeLayoutFactory factoryWithEditor:self.editor];
 
-  UILabel *beginLabel = [UILabel new];
-  UILabel *endLabel = [UILabel new];
-  UIView *compoundContainer = [UIView new];
-
-  beginLabel.text = @"begin";
-  beginLabel.textColor = [UIColor keywordColor];
-  endLabel.text = @"end";
-  endLabel.textColor = [UIColor keywordColor];
-
-  beginLabel.translatesAutoresizingMaskIntoConstraints = NO;
-  endLabel.translatesAutoresizingMaskIntoConstraints = NO;
-  compoundContainer.translatesAutoresizingMaskIntoConstraints = NO;
-
-  [self addSubview:beginLabel];
-  [self addSubview:endLabel];
-  [self addSubview:compoundContainer];
-
-  // This mess sets up the constraints for the compound view. It makes the container of the subexpressions the minimum
-  // possible width to fit all subexpressions.
-
-  NSMutableArray *componentArray = [NSMutableArray array];
-  NSMutableDictionary *componentMap = [NSMutableDictionary dictionary];
-  for (int i = 0; i < expression.numberOfSubexpressions; i++) {
-    PXHoleView *holeView = [PXHoleView viewWithHole:[expression expressionHoleAtIndex:i]];
-    holeView.translatesAutoresizingMaskIntoConstraints = NO;
-    [compoundContainer addSubview:holeView];
-    NSString *id = [NSString stringWithFormat:@"v%d", i];
-    [compoundContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-space-[view]"
-                                                                              options:0
-                                                                              metrics:@{@"space" : @(kEditorIndent)}
-                                                                                views:@{@"view" : holeView}]];
-    componentMap[id] = holeView;
-    [componentArray addObject:id];
-  };
-  NSMutableArray *constraintParts = [NSMutableArray array];
-  for (NSString *id in componentArray) {
-    [constraintParts addObject:[NSString stringWithFormat:@"[%@]", id]];
+  [factory addLineWithElements:@[[PXKeywordElement elementWithKeyword:@"begin" key:@"Begin"]]];
+  for (NSUInteger i = 0; i < expression.numberOfSubexpressions; i++) {
+    PXHole *hole = [expression expressionHoleAtIndex:i];
+    PXButtonElement *deleteButton = [PXButtonElement elementWithText:@"-" action:^{
+      [expression deleteExpressionAtIndex:i];
+      [self invalidateViews];
+    }];
+    deleteButton.color = [UIColor colorWithRed:.7f green:0.f blue:0.f alpha:1.f];
+    [factory addLineWithElements:@[[PXIndentElement elementWithIndent:kEditorIndent], deleteButton,
+        [PXHoleElement elementWithHole:hole key:[NSString stringWithFormat:@"Hole%d", i]]]];
   }
-  NSString *verticalCompoundConstraint = [NSString stringWithFormat:@"V:|%@|", [constraintParts componentsJoinedByString:@"-space-"]];
-  constraintParts = [NSMutableArray arrayWithArray:@[@"==0@low"]];
-  for (NSString *id in componentArray) {
-    [constraintParts addObject:[NSString stringWithFormat:@">=%@", id]];
-  }
-  NSString *horizontalCompoundConstraint = [NSString stringWithFormat:@"H:[self(%@)]", [constraintParts componentsJoinedByString:@","]];
-  componentMap[@"self"] = self;
+  PXButtonElement *addButton = [PXButtonElement elementWithText:@"+" action:^{
+    expression.numberOfSubexpressions++;
+    [self invalidateViews];
+  }];
+  addButton.color = [UIColor colorWithRed:.0f green:.5f blue:.0f alpha:1.f];
+  [factory addLineWithElements:@[[PXIndentElement elementWithIndent:kEditorIndent], addButton]];
+  [factory addLineWithElements:@[[PXKeywordElement elementWithKeyword:@"end" key:@"End"]]];
+  [factory createLayoutInView:self];
 
-  [self addConstraints:
-      [NSLayoutConstraint constraintsWithVisualFormat:horizontalCompoundConstraint
-                                              options:0
-                                              metrics:@{@"low" : @(UILayoutPriorityDefaultLow)}
-                                                views:componentMap]];
-  [compoundContainer addConstraints:
-      [NSLayoutConstraint constraintsWithVisualFormat:verticalCompoundConstraint
-                                              options:0
-                                              metrics:@{@"space" : @(kEditorLineSpacing)}
-                                                views:componentMap]];
-  [self addConstraints:
-      [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[beginLabel]"
-                                              options:0
-                                              metrics:nil
-                                                views:NSDictionaryOfVariableBindings(beginLabel)]];
-  [self addConstraints:
-      [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[endLabel]"
-                                              options:0
-                                              metrics:nil
-                                                views:NSDictionaryOfVariableBindings(endLabel)]];
-  [self addConstraints:
-      [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[compoundContainer]"
-                                              options:0
-                                              metrics:@{@"space" : @(kEditorIndent)}
-                                                views:NSDictionaryOfVariableBindings(compoundContainer)]];
-  [self addConstraints:
-      [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[beginLabel]-space-[compoundContainer]-space-[endLabel]|"
-                                              options:0
-                                              metrics:@{@"space" : @(kEditorLineSpacing)}
-                                                views:NSDictionaryOfVariableBindings(beginLabel, compoundContainer, endLabel)]];
+  NSMutableArray *holeViews = [NSMutableArray array];
+  for (UIView *view in [factory.views allValues]) {
+    if ([view isKindOfClass:[PXHoleView class]]) {
+      [holeViews addObject:view];
+    }
+  }
+  _holeViews = holeViews;
+
+  [self setNeedsLayout];
+  [self layoutIfNeeded];
 };
+
+- (void)refresh {
+  [_holeViews makeObjectsPerformSelector:@selector(refresh)];
+}
+
+- (void)layoutSubviews {
+  [super layoutSubviews];
+  _borderLayer.frame = CGRectMake(-8.f, 0.f, 1.f, self.frame.size.height);
+}
+
 
 @end
 
 @implementation PXCompoundExpression (PXExpressionView)
 
 - (PXCompoundExpressionView *)createView {
-  return [PXCompoundExpressionView viewWithExpression:self];
+  PXCompoundExpressionView *view = [PXCompoundExpressionView viewWithExpression:self];
+  return view;
 }
 
 

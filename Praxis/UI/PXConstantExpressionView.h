@@ -3,8 +3,9 @@
 #import "PXExpressionView.h"
 #import "PXConstantExpression.h"
 
-@interface PXConstantExpressionView : PXExpressionView
+@class PXCodeEditor;
 
+@interface PXConstantExpressionView : PXExpressionView
 @end
 
 @interface PXConstantExpression (PXExpressionView)

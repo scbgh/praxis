@@ -2,41 +2,51 @@
 #import "PXConstantExpression.h"
 #import "PXValue.h"
 #import "UIColor+PXColor.h"
+#import "PXCodeEditor.h"
+#import "PXConditionalExpression.h"
 
-@implementation PXConstantExpressionView
+@implementation PXConstantExpressionView {
+  UILabel *_constantLabel;
+}
 
 - (void)invalidateViews {
   [super invalidateViews];
 
-  PXConstantExpression *expression = (PXConstantExpression *)self.expression;
+  _constantLabel = [UILabel new];
+  _constantLabel.translatesAutoresizingMaskIntoConstraints = NO;
+  [self addSubview:_constantLabel];
+  [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_constantLabel]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_constantLabel)]];
+  [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_constantLabel]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_constantLabel)]];
 
-  UILabel *constantLabel = [UILabel new];
-  constantLabel.translatesAutoresizingMaskIntoConstraints = NO;
-  constantLabel.textColor = [UIColor colorWithExpressionType:expression.type];
+  [self refresh];
+}
+
+- (void)refresh {
+  PXConstantExpression *expression = (PXConstantExpression *)self.expression;
+  _constantLabel.textColor = [UIColor colorWithExpressionType:expression.type];
+
   switch (expression.type) {
     case PXFloatType:
-      constantLabel.text = [NSString stringWithFormat:@"%.2f", [expression.value doubleValue]];
+      _constantLabel.text = [NSString stringWithFormat:@"%.2f", [expression.value doubleValue]];
       break;
     case PXIntegerType:
-      constantLabel.text = [NSString stringWithFormat:@"%d", [expression.value intValue]];
+      _constantLabel.text = [NSString stringWithFormat:@"%d", [expression.value intValue]];
       break;
     case PXBooleanType:
-      constantLabel.text = [expression.value boolValue] ? @"true" : @"false";
+      _constantLabel.text = [expression.value boolValue] ? @"true" : @"false";
       break;
     case PXStringType:
-      constantLabel.Text = [NSString stringWithFormat:@"%@", [expression.value stringValue]];
+      _constantLabel.Text = [NSString stringWithFormat:@"\"%@\"", [expression.value stringValue]];
       break;
     case PXVoidType:
-      constantLabel.Text = @"()";
+      _constantLabel.Text = @"()";
       break;
     case PXFunctionType:
-      constantLabel.Text = @"[function]";
+      _constantLabel.Text = @"[function]";
       break;
   }
-  [self addSubview:constantLabel];
-  [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[constantLabel]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(constantLabel)]];
-  [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[constantLabel]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(constantLabel)]];
 }
+
 
 @end
 
@@ -44,7 +54,8 @@
 @implementation PXConstantExpression (PXExpressionView)
 
 - (PXConstantExpressionView *)createView {
-  return [PXConstantExpressionView viewWithExpression:self];
+  PXConstantExpressionView *view = [PXConstantExpressionView viewWithExpression:self];
+  return view;
 }
 
 @end

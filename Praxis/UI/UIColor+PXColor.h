@@ -9,9 +9,9 @@
 + (UIColor *)floatColor;
 + (UIColor *)stringColor;
 + (UIColor *)boolColor;
-+ (UIColor *)identifierColor;
 + (UIColor *)keywordColor;
 + (UIColor *)functionColor;
++ (UIColor *)selectionColor;
 + (UIColor *)colorWithExpressionType:(PXExpressionType)type;
 
 

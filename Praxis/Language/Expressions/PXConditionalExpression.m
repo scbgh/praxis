@@ -24,9 +24,9 @@ enum {
 - (instancetype)init {
   self = [super init];
   if (self) {
-    _conditionExpressionHole = [PXHole holeWithExpressionType:PXBooleanType];
-    _trueExpressionHole = [PXHole holeWithExpressionType:PXAnyType];
-    _falseExpressionHole = [PXHole holeWithExpressionType:PXAnyType];
+    _conditionExpressionHole = [PXHole holeWithExpressionType:PXBooleanType parentExpression:self];
+    _trueExpressionHole = [PXHole holeWithExpressionType:PXVoidType parentExpression:self];
+    _falseExpressionHole = [PXHole holeWithExpressionType:PXVoidType parentExpression:self];
   }
   return self;
 }

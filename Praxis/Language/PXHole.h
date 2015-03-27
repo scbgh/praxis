@@ -3,15 +3,14 @@
 #import "PXExpressionType.h"
 
 @class PXExpression;
-@class PXHole;
-
 
 @interface PXHole : NSObject
 
-- (instancetype)initWithExpressionType:(PXExpressionType)expressionType;
-+ (instancetype)holeWithExpressionType:(PXExpressionType)expressionType;
+- (instancetype)initWithExpressionType:(PXExpressionType)expressionType parentExpression:(PXExpression *)parentExpression;
++ (instancetype)holeWithExpressionType:(PXExpressionType)expressionType parentExpression:(PXExpression *)parentExpression;
 
-@property(nonatomic) PXExpressionType expressionType;
-@property(nonatomic, retain) PXExpression *expression;
+@property (nonatomic) PXExpressionType expressionType;
+@property (nonatomic, retain) PXExpression *expression;
+@property (nonatomic, retain) PXExpression *parent;
 
 @end

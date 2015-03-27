@@ -2,9 +2,7 @@
 #import "PXTaskGroup.h"
 
 @interface PXTaskGroupView ()
-
 - (void)recreateSubviews;
-
 @end
 
 @implementation PXTaskGroupView {
@@ -15,6 +13,7 @@
   self = [super init];
   if (self) {
     _taskGroup = taskGroup;
+    _taskGroup.delegate = self;
   }
   [self recreateSubviews];
   return self;
@@ -22,6 +21,10 @@
 
 + (instancetype)viewWithTaskGroup:(PXTaskGroup *)taskGroup {
   return [[self alloc] initWithTaskGroup:taskGroup];
+}
+
+- (void)taskGroupRefreshed:(PXTaskGroup *)taskGroup {
+  [self recreateSubviews];
 }
 
 - (void)recreateSubviews {
@@ -37,8 +40,7 @@
   titleLabel.text = _taskGroup.title;
   titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
 
-  UIView *taskGroupSubview = [_taskGroup createView];
-  taskGroupSubview.frame = CGRectMake(0.f, 0.f, 10.f, 10.f);
+  UIView *taskGroupSubview = [_taskGroup view];
   taskGroupSubview.translatesAutoresizingMaskIntoConstraints = NO;
 
   [self addSubview:titleLabel];
@@ -50,5 +52,12 @@
 
   [self setNeedsUpdateConstraints];
 }
+
+- (void)didMoveToSuperview {
+  [super didMoveToSuperview];
+  [_taskGroup refresh];
+  [self recreateSubviews];
+}
+
 
 @end

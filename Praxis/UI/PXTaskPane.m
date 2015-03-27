@@ -8,12 +8,9 @@
 @end
 
 @implementation PXTaskPane {
-  NSArray *_taskGroups;
   UIScrollView *_scrollView;
   UIView *_contentView;
 }
-
-@synthesize taskGroups = _taskGroups;
 
 - (void)initialize {
   self.backgroundColor = [UIColor colorWithWhite:247.f/255.f alpha:1.f];
@@ -31,12 +28,13 @@
   [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_contentView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_contentView)]];
   [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_contentView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_contentView)]];
   [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_scrollView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_scrollView)]];
-  [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_scrollView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_scrollView)]];
+  [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_scrollView(==0@low,==_contentView@high,<=240)]|" options:0 metrics:@{@"low": @(UILayoutPriorityDefaultLow), @"high": @(UILayoutPriorityDefaultHigh)} views:NSDictionaryOfVariableBindings(_scrollView, _contentView)]];
 }
 
 - (void)recreateSubviews {
   NSMutableDictionary *bindings = [NSMutableDictionary dictionary];
   NSMutableString *constraintString = [NSMutableString stringWithString:@"V:|"];
+  BOOL show = NO;
   int i = 0;
 
   [_contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
@@ -50,11 +48,14 @@
     NSString *horizontalConstraint = [NSString stringWithFormat:@"H:|[%@]|", viewName];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:horizontalConstraint options:0 metrics:nil views:@{viewName : taskGroupView}]];
     bindings[viewName] = taskGroupView;
+    show = YES;
     i++;
   };
-  [constraintString appendString:@"|"];
-  [_contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:constraintString options:0 metrics:nil views:bindings]];
-  [_contentView setNeedsUpdateConstraints];
+  if (show) {
+    [constraintString appendString:@"|"];
+    [_contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:constraintString options:0 metrics:nil views:bindings]];
+    [_contentView setNeedsUpdateConstraints];
+  }
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -67,8 +68,10 @@
 
 - (void)setTaskGroups:(NSArray *)taskGroups {
   _taskGroups = taskGroups;
-  [self recreateSubviews];
+  [self refresh];
 }
 
-
+- (void)refresh {
+  [self recreateSubviews];
+}
 @end

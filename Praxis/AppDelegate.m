@@ -1,5 +1,6 @@
 #import "AppDelegate.h"
 #import "PXEditCodeViewController.h"
+#import "PXDefaultBuiltins.h"
 
 @interface AppDelegate ()
 
@@ -9,6 +10,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
+  PXInitBuiltins();
 
   UIViewController *rootViewController = [PXEditCodeViewController new];
   UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];

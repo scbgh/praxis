@@ -197,6 +197,7 @@
         [self raise:@"No viable alternative found in rule 'expr'."];
     }
 
+    [self fireDelegateSelector:@selector(parser:didMatchExpr:)];
 }
 
 - (void)expr_ {
@@ -221,6 +222,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchCompoundExpr:)];
 }
 
 - (void)compoundExpr_ {
@@ -243,6 +245,7 @@
         [self raise:@"No viable alternative found in rule 'constantExpr'."];
     }
 
+    [self fireDelegateSelector:@selector(parser:didMatchConstantExpr:)];
 }
 
 - (void)constantExpr_ {
@@ -258,6 +261,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchIdentifierExpr:)];
 }
 
 - (void)identifierExpr_ {
@@ -277,6 +281,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchAssignmentExpr:)];
 }
 
 - (void)assignmentExpr_ {
@@ -308,6 +313,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchConditionalExpr:)];
 }
 
 - (void)conditionalExpr_ {
@@ -324,6 +330,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchElsePart:)];
 }
 
 - (void)elsePart_ {
@@ -357,6 +364,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchCallExpr:)];
 }
 
 - (void)callExpr_ {
@@ -378,6 +386,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchWhileExpr:)];
 }
 
 - (void)whileExpr_ {
@@ -410,6 +419,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchFunction:)];
 }
 
 - (void)function_ {
@@ -427,6 +437,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchArg:)];
 }
 
 - (void)arg_ {
@@ -442,6 +453,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchListstart:)];
 }
 
 - (void)liststart_ {
@@ -463,6 +475,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchIntLiteral:)];
 }
 
 - (void)intLiteral_ {
@@ -478,6 +491,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchFloatLiteral:)];
 }
 
 - (void)floatLiteral_ {
@@ -489,10 +503,13 @@
     [self matchQuotedString:NO]; 
     [self execute:^{
     
-    PUSH([PXExpression constantWithValue:[PXValue valueWithString:POP_STR()]]);
+    NSString *string = POP_STR();
+    string = [string substringWithRange:NSMakeRange(1, string.length - 2)];
+    PUSH([PXExpression constantWithValue:[PXValue valueWithString:string]]);
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchStringLiteral:)];
 }
 
 - (void)stringLiteral_ {
@@ -514,6 +531,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchBoolLiteral:)];
 }
 
 - (void)boolLiteral_ {
@@ -529,6 +547,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchUnitLiteral:)];
 }
 
 - (void)unitLiteral_ {
@@ -557,6 +576,7 @@
         [self raise:@"No viable alternative found in rule 'valueTypeName'."];
     }
 
+    [self fireDelegateSelector:@selector(parser:didMatchValueTypeName:)];
 }
 
 - (void)valueTypeName_ {
@@ -575,6 +595,7 @@
         [self raise:@"No viable alternative found in rule 'typeName'."];
     }
 
+    [self fireDelegateSelector:@selector(parser:didMatchTypeName:)];
 }
 
 - (void)typeName_ {
@@ -590,6 +611,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchIntType:)];
 }
 
 - (void)intType_ {
@@ -605,6 +627,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchFloatType:)];
 }
 
 - (void)floatType_ {
@@ -620,6 +643,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchBoolType:)];
 }
 
 - (void)boolType_ {
@@ -635,6 +659,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchStringType:)];
 }
 
 - (void)stringType_ {
@@ -650,6 +675,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchUnitType:)];
 }
 
 - (void)unitType_ {
@@ -665,6 +691,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchFunctionType:)];
 }
 
 - (void)functionType_ {
@@ -680,6 +707,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchNumericType:)];
 }
 
 - (void)numericType_ {
@@ -695,6 +723,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchScalarType:)];
 }
 
 - (void)scalarType_ {
@@ -710,6 +739,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchValueType:)];
 }
 
 - (void)valueType_ {
@@ -725,6 +755,7 @@
 
     }];
 
+    [self fireDelegateSelector:@selector(parser:didMatchAnyType:)];
 }
 
 - (void)anyType_ {
@@ -735,6 +766,7 @@
     
     [self matchWord:NO]; 
 
+    [self fireDelegateSelector:@selector(parser:didMatchIdentifier:)];
 }
 
 - (void)identifier_ {

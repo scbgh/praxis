@@ -1,5 +1,7 @@
 @import UIKit;
 
-@interface PXEditCodeViewController : UIViewController
+#import "PXCodeEditor.h"
+
+@interface PXEditCodeViewController : UIViewController <PXCodeEditorDelegate>
 
 @end

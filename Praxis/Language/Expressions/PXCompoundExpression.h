@@ -10,6 +10,7 @@
 + (instancetype)expressionWithType:(PXExpressionType)type;
 
 - (PXHole *)expressionHoleAtIndex:(NSUInteger)index;
+- (void)deleteExpressionAtIndex:(NSUInteger)index;
 
 @property(nonatomic) NSUInteger numberOfSubexpressions;
 

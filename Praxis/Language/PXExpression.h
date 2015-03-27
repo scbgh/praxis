@@ -1,6 +1,7 @@
 @import Foundation;
 @class PXExecutionContext;
 @class PXExecutionResult;
+@class PXHole;
 
 #import "PXExpressionType.h"
 #import "PXDebugContext.h"
@@ -12,5 +13,6 @@
 - (PXExpressionType)type;
 
 @property (readonly, nonatomic) int id;
+@property (nonatomic, strong) PXHole *hole;
 
 @end

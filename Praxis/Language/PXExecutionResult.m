@@ -7,13 +7,7 @@
 - (instancetype)initWithContinuation:(PXContinuation *)continuation;
 @end
 
-@implementation PXExecutionResult {
-  PXContinuation *_continuation;
-  PXFailureInfo *_failureInfo;
-}
-
-@synthesize continuation = _continuation;
-@synthesize failureInfo = _failureInfo;
+@implementation PXExecutionResult
 
 + (instancetype)resultWithContinuation:(PXContinuation *)continuation {
   PXExecutionResult *result = [[PXExecutionResult alloc] initWithContinuation:continuation];

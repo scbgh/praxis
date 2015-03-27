@@ -7,33 +7,28 @@
 
 @implementation PXCompoundExpression {
   NSMutableArray *_holes;
-  NSUInteger _numberOfSubexpressions;
   PXExpressionType _type;
 }
-
-@synthesize numberOfSubexpressions = _numberOfSubexpressions;
 
 - (instancetype)init {
   self = [super init];
   if (self) {
+    _type = PXVoidType;
+    _holes = [NSMutableArray array];
     self.numberOfSubexpressions = 1;
   }
-  return [self commonInit];
+  return self;
 }
 
 - (instancetype)initWithType:(PXExpressionType)type {
-  self = [super init];
+  self = [self init];
   if (self) {
     _type = type;
   }
 
-  return [self commonInit];
-}
-
-- (PXCompoundExpression *)commonInit {
-  _holes = [NSMutableArray array];
   return self;
 }
+
 
 + (instancetype)expressionWithType:(PXExpressionType)type {
   return [[self alloc] initWithType:type];
@@ -79,7 +74,7 @@
     _holes = newHoles;
   } else {
     for (int i = _holes.count; i < numberOfSubexpressions; i++) {
-      [_holes addObject:[PXHole holeWithExpressionType:PXAnyType]];
+      [_holes addObject:[PXHole holeWithExpressionType:PXVoidType parentExpression:self]];
     }
   }
   _numberOfSubexpressions = numberOfSubexpressions;
@@ -88,5 +83,11 @@
 - (PXHole *)expressionHoleAtIndex:(NSUInteger)index {
   return _holes[index];
 }
+
+- (void)deleteExpressionAtIndex:(NSUInteger)index {
+  [_holes removeObjectAtIndex:index];
+  _numberOfSubexpressions--;
+}
+
 
 @end

@@ -6,15 +6,17 @@
 #import "PXExpression+PXExpressionHelpers.h"
 #import "PXValue.h"
 #import "PXIdentifierExpression.h"
+#import "PXHoleView.h"
+#import "PXHole.h"
 
 @interface PXEditCodeViewController ()
 
 @end
 
 @implementation PXEditCodeViewController {
-  UIToolbar *toolbar;
-  PXTaskPane *taskPane;
-  PXCodeEditor *codeEditor;
+  UIToolbar *_toolbar;
+  PXTaskPane *_taskPane;
+  PXCodeEditor *_codeEditor;
 }
 
 - (void)viewDidLoad {
@@ -23,37 +25,39 @@
   self.title = @"Edit Source Code";
 
   // Toolbar
-  toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-  toolbar.translatesAutoresizingMaskIntoConstraints = NO;
-  [self.view addSubview:toolbar];
+  _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+  _toolbar.translatesAutoresizingMaskIntoConstraints = NO;
+  [self.view addSubview:_toolbar];
 
   // Editor
-  codeEditor = [[PXCodeEditor alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-  codeEditor.translatesAutoresizingMaskIntoConstraints = NO;
-  [self.view addSubview:codeEditor];
+  _codeEditor = [[PXCodeEditor alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+  _codeEditor.translatesAutoresizingMaskIntoConstraints = NO;
+  [self.view addSubview:_codeEditor];
 
 
   // Task pane
-  taskPane = [[PXTaskPane alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-  taskPane.translatesAutoresizingMaskIntoConstraints = NO;
-  [self.view addSubview:taskPane];
+  _taskPane = [[PXTaskPane alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+  _taskPane.translatesAutoresizingMaskIntoConstraints = NO;
+  [self.view addSubview:_taskPane];
 
   // Constraints
   id topGuide = self.topLayoutGuide;
   id bottomGuide = self.bottomLayoutGuide;
-  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[toolbar]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(toolbar)]];
-  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[taskPane]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(taskPane)]];
-  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[codeEditor]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(codeEditor)]];
-  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[topGuide][toolbar(44)][codeEditor][taskPane(>=44,<=240)][bottomGuide]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(toolbar, taskPane, codeEditor, topGuide, bottomGuide)]];
+  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_toolbar]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_toolbar)]];
+  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_taskPane]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_taskPane)]];
+  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_codeEditor]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_codeEditor)]];
+  [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[topGuide][_toolbar(44)][_codeEditor][_taskPane][bottomGuide]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_toolbar, _taskPane, _codeEditor, topGuide, bottomGuide)]];
 
   NSError *error;
-  PXExpression *expr = [PXExpression expressionWithString:@"{ x := int(0); while (true) { y := 7 ; z := \"Hello world\" } }" error:&error];
-  codeEditor.expression = expr;
+  //PXExpression *expr = [PXExpression expressionWithString:@"{ x := int(0); while (true) { y := 7 ; z := \"Hello world\" } }" error:&error];
+  PXExpression *expr = [PXExpression expressionWithString:@"" error:&error];
+  _codeEditor.rootHoleView.hole.expression = expr;
 
-  PXTestTaskGroup *group1 = [PXTestTaskGroup groupWithTitle:@"Group One"];
-  PXTestTaskGroup *group2 = [PXTestTaskGroup groupWithTitle:@"Group Two"];
-  PXTestTaskGroup *group3 = [PXTestTaskGroup groupWithTitle:@"Group Three"];
-  taskPane.taskGroups = @[group1, group2, group3];
+  _taskPane.taskGroups = @[_codeEditor.insertTaskGroup, _codeEditor.identifierTaskGroup];
+}
+
+- (void)selectedHoleViewChanged {
+  [_taskPane refresh];
 };
 
 @end

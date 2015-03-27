@@ -1,4 +1,5 @@
 #import "PXTaskGroup.h"
+#import "PXCodeEditor.h"
 
 @implementation PXTaskGroup
 
@@ -15,8 +16,12 @@
   return [[self alloc] initWithTitle:title];
 }
 
-- (UIView *)createView {
-  return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
+- (UIView *)view {
+  return nil;
+}
+
+- (void)refresh {
+  [self.delegate taskGroupRefreshed:self];
 }
 
 @end
