@@ -58,7 +58,16 @@
 }
 
 - (NSString *)stringValue {
-  return _stringValue;
+  if (_stringValue != nil) {
+    return _stringValue;
+  }
+  if (_numberValue != nil) {
+    return [_numberValue stringValue];
+  }
+  if (_functionValue != nil) {
+    return @"<function>";
+  }
+  return nil;
 }
 
 - (id)copyWithZone:(NSZone *)zone {
@@ -140,15 +149,8 @@
       break;
   }
   NSString *valueDescription;
-  if (self.functionValue != nil) {
-    valueDescription = [self.functionValue description];
-  } else if (self.stringValue != nil) {
-    valueDescription = _stringValue;
-  } else {
-    valueDescription = [NSString stringWithFormat:@"%@", _numberValue];
-  }
   [description appendFormat:@"type=%@", typeDescription];
-  [description appendFormat:@", value=%@", valueDescription];
+  [description appendFormat:@", value=%@", [self stringValue]];
   [description appendString:@"]"];
   return description;
 }

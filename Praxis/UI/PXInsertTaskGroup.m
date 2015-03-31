@@ -20,6 +20,7 @@
 #import "PXInsertIntegerTask.h"
 #import "PXCallExpression.h"
 #import "PXDefaultBuiltins+Decl.h"
+#import "PXPrintExpression.h"
 
 @interface PXInsertTaskGroup ()
 
@@ -105,6 +106,20 @@
     [array addObject:[taskFactory createTaskWithClass:[PXInsertTask class] name:@"{ ... }" setup:^(PXInsertTask *task) {
       task.generator = ^{
         return [[PXCompoundExpression alloc] init];
+      };
+    }]];
+    [array addObject:[taskFactory createTaskWithClass:[PXInsertTask class] name:@"print" setup:^(PXInsertTask *task) {
+      task.generator = ^{
+        PXPrintExpression *expression = [[PXPrintExpression alloc] init];
+        expression.newline = NO;
+        return expression;
+      };
+    }]];
+    [array addObject:[taskFactory createTaskWithClass:[PXInsertTask class] name:@"println" setup:^(PXInsertTask *task) {
+      task.generator = ^{
+        PXPrintExpression *expression = [[PXPrintExpression alloc] init];
+        expression.newline = YES;
+        return expression;
       };
     }]];
     [array addObject:[taskFactory createTaskWithClass:[PXInsertAssignmentTask class] name:@":=" setup:nil]];

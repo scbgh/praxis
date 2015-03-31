@@ -77,6 +77,10 @@
   XCTAssertEqual(10, val.intValue);
 }
 
+- (void)testPrintExpression {
+  
+}
+
 #define TEST_NUMERIC_BINOP_BUILTIN(op, x_, y_, compare) \
   do { \
     PXValue *r; \

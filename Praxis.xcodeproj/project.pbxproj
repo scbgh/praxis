@@ -99,6 +99,8 @@
 		685F0AC6308A225CF17BFD30 /* PXButtonElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F020F8F2B8655845C1A0E /* PXButtonElement.m */; };
 		685F0ADBFF1945AC0257B242 /* PXHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F08D931C2711737206CAA /* PXHole.m */; };
 		685F0B00D17535412C95FC3C /* PXCallExpressionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F051C5CF8C67A284DA326 /* PXCallExpressionView.m */; };
+		685F0B014229307A45F3EBAE /* PXPrintExpressionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0AF00EB1DFC1659AEA9D /* PXPrintExpressionView.m */; };
+		685F0B1EA1E6EEDD7A1CBFA1 /* PXPrintExpressionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0AF00EB1DFC1659AEA9D /* PXPrintExpressionView.m */; };
 		685F0B255273482D6248E508 /* PXHole.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F08D931C2711737206CAA /* PXHole.m */; };
 		685F0B2F8764D56414A1D213 /* PXTestTaskGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0332212859137D10CD9E /* PXTestTaskGroup.m */; };
 		685F0B38BC7B5481884C2519 /* PXHoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F075477D0261EE6FBCC74 /* PXHoleView.m */; };
@@ -112,8 +114,10 @@
 		685F0BFF0EC834A4C20D0BFE /* PXExecutionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0EB6253564D7EB63DB66 /* PXExecutionResult.m */; };
 		685F0C0161DDF20C77FF3B2F /* PXContinuation.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F09378EEF8B72750A22DD /* PXContinuation.m */; };
 		685F0C34764DA8D1289EF785 /* PXInsertAssignmentTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0F2C16FD5BEF783A770D /* PXInsertAssignmentTask.m */; };
+		685F0C3F5AD3DBB17A43FFD1 /* PXPrintExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0CF11600D2B96D9D8A69 /* PXPrintExpression.m */; };
 		685F0C4514760500E81DC982 /* PXIdentifierExpressionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F033AEF3574D443203BF7 /* PXIdentifierExpressionView.m */; };
 		685F0CEA54FB9B26305E2FFE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F0CBE3D7B7EEB1806D230 /* LaunchScreen.xib */; };
+		685F0D05B4C820DE1ACEE0F9 /* PXPrintExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F0CF11600D2B96D9D8A69 /* PXPrintExpression.m */; };
 		685F0D26575A6422AF87BD0D /* PXValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F055960E6F824FD228D2C /* PXValue.m */; };
 		685F0D2DF49924F10703B091 /* PXConditionalExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F054846D7805194F396DB /* PXConditionalExpression.m */; };
 		685F0D95BB771441E12665D7 /* PXScopeAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F001D4E074BC70256E183 /* PXScopeAnalyzer.m */; };
@@ -226,6 +230,7 @@
 		685F05B1D66D6958DE50183D /* PXKeywordElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXKeywordElement.h; sourceTree = "<group>"; };
 		685F05BD437C33606F2C8E0E /* PXArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXArgument.m; sourceTree = "<group>"; };
 		685F05DC409746AB33EE284C /* PXConstantExpressionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXConstantExpressionView.h; sourceTree = "<group>"; };
+		685F05EDC81376EF3FA209B5 /* PXPrintExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXPrintExpression.h; sourceTree = "<group>"; };
 		685F05EDF1D15C49AE959218 /* UIView+PXGestureExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PXGestureExtensions.m"; sourceTree = "<group>"; };
 		685F05FF7F6FFF37D8BD93D5 /* PXIdentifierElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXIdentifierElement.h; sourceTree = "<group>"; };
 		685F061047292D6F781F69D5 /* PXFailureInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXFailureInfo.m; sourceTree = "<group>"; };
@@ -234,6 +239,7 @@
 		685F064199AFDF6EF90BDD03 /* PXFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXFunction.h; sourceTree = "<group>"; };
 		685F064A5B6839738310891B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		685F066512DEC2EB69ABAA97 /* PXAssignmentExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXAssignmentExpression.h; sourceTree = "<group>"; };
+		685F06670E6CA32B321A741E /* PXPrintExpressionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXPrintExpressionView.h; sourceTree = "<group>"; };
 		685F0694CAFFD2AECC4D9068 /* PXIdentifierElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXIdentifierElement.m; sourceTree = "<group>"; };
 		685F0699ABD8A8F6C9288736 /* PXConditionalExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXConditionalExpression.h; sourceTree = "<group>"; };
 		685F06E472E9B6ED587FE7CC /* PXCodeEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXCodeEditor.h; sourceTree = "<group>"; };
@@ -265,6 +271,7 @@
 		685F0A8990FFF5C53B5D96B9 /* UIColor+PXColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PXColor.m"; sourceTree = "<group>"; };
 		685F0ABF29CF37E04AD997A6 /* PXExecutionContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXExecutionContext.m; sourceTree = "<group>"; };
 		685F0AD61B024516A9ADBAC4 /* PXCallExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXCallExpression.m; sourceTree = "<group>"; };
+		685F0AF00EB1DFC1659AEA9D /* PXPrintExpressionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXPrintExpressionView.m; sourceTree = "<group>"; };
 		685F0B0CBA7969E4BC91ADFD /* PXInsertStringTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXInsertStringTask.h; sourceTree = "<group>"; };
 		685F0B69BE7CF2872F1762BC /* PXConstantExpression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXConstantExpression.h; sourceTree = "<group>"; };
 		685F0BD7C33C63BB4D7A1D52 /* PXHoleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXHoleElement.m; sourceTree = "<group>"; };
@@ -274,6 +281,7 @@
 		685F0C8D4F30676930317143 /* PXTaskGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXTaskGroupView.h; sourceTree = "<group>"; };
 		685F0CCE9EB0433D2E22A68B /* PXDefaultBuiltins+Decl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PXDefaultBuiltins+Decl.h"; sourceTree = "<group>"; };
 		685F0CD10CA809B62244F1B1 /* NSArray+PXArrayExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PXArrayExtensions.h"; sourceTree = "<group>"; };
+		685F0CF11600D2B96D9D8A69 /* PXPrintExpression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXPrintExpression.m; sourceTree = "<group>"; };
 		685F0D042C8E41AB93C3FC2E /* PXEditCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXEditCodeViewController.h; sourceTree = "<group>"; };
 		685F0D17AD992CD35922FD8A /* PXDebugContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXDebugContext.h; sourceTree = "<group>"; };
 		685F0D226A8486FED01CAA98 /* PXInsertAssignmentTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXInsertAssignmentTask.h; sourceTree = "<group>"; };
@@ -462,6 +470,8 @@
 				685F09BFF12BC41F8D8ED904 /* PXIdentifierExpression.m */,
 				685F0699ABD8A8F6C9288736 /* PXConditionalExpression.h */,
 				685F054846D7805194F396DB /* PXConditionalExpression.m */,
+				685F0CF11600D2B96D9D8A69 /* PXPrintExpression.m */,
+				685F05EDC81376EF3FA209B5 /* PXPrintExpression.h */,
 			);
 			path = Expressions;
 			sourceTree = "<group>";
@@ -483,6 +493,8 @@
 				685F0FC18D1FDDC215181765 /* PXConditionalExpressionView.h */,
 				685F051C5CF8C67A284DA326 /* PXCallExpressionView.m */,
 				685F02A161F533F46E72392B /* PXCallExpressionView.h */,
+				685F0AF00EB1DFC1659AEA9D /* PXPrintExpressionView.m */,
+				685F06670E6CA32B321A741E /* PXPrintExpressionView.h */,
 			);
 			name = "Expression Views";
 			sourceTree = "<group>";
@@ -813,6 +825,8 @@
 				685F0B00D17535412C95FC3C /* PXCallExpressionView.m in Sources */,
 				685F078801598568829EB599 /* PXHole+PXHoleView.m in Sources */,
 				685F044CDE023A3DBDB641D0 /* PXExpression+PXExpressionView.m in Sources */,
+				685F0C3F5AD3DBB17A43FFD1 /* PXPrintExpression.m in Sources */,
+				685F0B1EA1E6EEDD7A1CBFA1 /* PXPrintExpressionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -883,6 +897,8 @@
 				685F07BA7263EEF204BF96B8 /* PXCallExpressionView.m in Sources */,
 				685F02BFA20563FEDB03C84A /* PXHole+PXHoleView.m in Sources */,
 				685F0580A3A93A035DE1A0F2 /* PXExpression+PXExpressionView.m in Sources */,
+				685F0D05B4C820DE1ACEE0F9 /* PXPrintExpression.m in Sources */,
+				685F0B014229307A45F3EBAE /* PXPrintExpressionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

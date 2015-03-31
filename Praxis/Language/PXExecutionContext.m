@@ -4,18 +4,19 @@
 static int ctr = 2000;
 
 @interface PXExecutionContext ()
-
 - (instancetype)initWithParentContext:(PXExecutionContext *)parentContext;
 @end
 
 @implementation PXExecutionContext {
   int _id;
+  NSMutableString *_output;
   NSMutableDictionary *_environment;
   PXContinuation *_currentContinuation;
 }
 
 - (instancetype)commonInit {
   _environment = [NSMutableDictionary dictionary];
+  _output = [NSMutableString string];
   self.dbg = [PXDebugContext debugContextWithContext:self];
   self.globalContext = self;
   return self;
@@ -84,6 +85,14 @@ static int ctr = 2000;
     self.parentContext.currentContinuation = currentContinuation;
   }
   _currentContinuation = currentContinuation;
+}
+
+- (void)print:(NSString *)value {
+  [_output appendString:value];
+}
+
+- (void)println:(NSString *)value {
+  [_output appendFormat:@"%@\n", value];
 }
 
 
